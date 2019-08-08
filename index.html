@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+
+<style>
+    @font-face {
+        font-family: "vodafone";
+        src: url("/themes/mts/styles/fonts/vodafone/VodafoneRgBd.ttf");
+        src: url("/themes/mts/styles/fonts/vodafone/VodafoneRgBd.ttf") format("truetype");
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal
+    }
+
+    @font-face {
+        font-family: "vodafone";
+        src: url("/themes/mts/styles/fonts/vodafone/VodafoneExB.ttf");
+        src: url("/themes/mts/styles/fonts/vodafone/VodafoneExB.ttf") format("truetype"),
+        url("/themes/mts/styles/fonts/vodafone/VodafoneExB.woff") format("woff"),
+        url("/themes/mts/styles/fonts/vodafone/VodafoneExB.eot") format("eot"),
+        url("/themes/mts/styles/fonts/vodafone/VodafoneExB.eot") format("otf"),
+        url("/themes/mts/styles/fonts/vodafone/VodafoneExB.svg") format("svg");
+        font-weight: 800;
+        font-style: normal;
+        font-stretch: normal
+    }
+
+    a:hover {
+        text-decoration: underline !important;
+    }
+
+    .tileset {
+        position: relative;
+        display: flex;
+    }
+
+    .tileset:after {
+        content:'';
+        display: block;
+        clear: both;
+    }
+
+    .tileset .tile {
+        width:25%;
+        height: 290px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-color: #eee;
+        overflow: hidden;
+    }
+
+    .tileset .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s ease;
+        z-index: 100;
+    }
+
+    .tileset .slide a:link, .tileset .slide a:visited, .tileset .slide a {
+        color:#FFFFFF;
+        font-family:Arial;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .tileset .slide ul {
+        list-style: none;
+        padding: 10px 20px;
+    }
+
+    .tileset .slide li {
+        list-style: none !important;
+        line-height: 1.6em;
+    }
+
+    .tileset .title {
+        font-family: vodafone;
+        font-weight: 800;
+        font-size: 24px;
+        color: #FFFFFF;
+        padding: 9px 0px 0px 20px;
+        line-height: 1em;
+        box-sizing: border-box;
+    }
+
+    .tileset .slide .title {
+        color: #FFFFFF;
+    }
+
+    .tileset .slide.left {
+        top:0;
+        left:-100%;
+    }
+
+    .tileset .slide.right {
+        top:0;
+        right:-100%;
+    }
+
+    .tileset .slide.bottoml {
+        bottom:0;
+        left:-5%;
+    }
+
+    .tileset .slide.bottomr {
+        top:0;
+        right:-5%;
+    }
+
+    .tileset .tile:hover .slide.left {
+        top:0;
+        left:0;
+    }
+
+    .tileset .tile:hover .slide.right {
+        top:0;
+        right:0;
+    }
+
+    .tileset .tile:hover .slide.bottoml {
+        bottom:0;
+        left:0;
+    }
+    .tileset .tile:hover .slide.bottomr {
+        bottom:0;
+        right:0;
+    }
+    .tileset .bg-violet {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/Nakladka%2B1t.png?a=1560504769495");
+        background-position-x: -0px;
+    }
+
+    .tileset .bg-aqua {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/Nakladka%2B2.png?a=1560503641717");
+        background-position-x: -0px;
+
+    }
+    .tileset .bg-orange {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/Nakladka%2B3.png?a=1560503645061");
+        background-position-x: -0px;
+    }
+
+    .tileset .bg-blue {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/Nakladka%2B4t.png?a=1560504774637");
+        background-position-x: -0px;
+
+    }
+
+    .bg-first {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/sport%252B_1.png?a=1516361249998");
+        background-position-x: -0px;
+    }
+
+    .bg-second {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/sport%252B_2%25281%2529.png?a=1516612789848");
+        background-position-x: -0px;
+    }
+    .bg-thirth {
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/sport%252B_3%25281%2529.png?a=1516612795664");
+        background-position-x: -0px;
+    }
+    .bg-fourth{
+        background-image: url("https://prostor.mts.com.ua/resources/statics/82415/sport%252B_4.png?a=1516361253816");
+        background-position-x: -0px;
+    }
+
+    .button-left {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 999;
+
+    }
+
+    @media(max-width: 1000px) {
+
+        .tileset {
+            flex-direction: column;
+            display: block;
+        }
+
+        .tileset .tile {
+            width: 100%;
+            display: none;
+        }
+
+        .tileset .tile:first-child {
+            display: block;
+        }
+
+    }
+
+</style>
+
+<div class="tileset">
+    <div class="tile bg-first">
+        <div class="slide bottoml bg-violet">
+            <div class="title"> </div>
+            <ul>
+                <li>&nbsp;&nbsp;&nbsp;<a href="https://prostor.mts.com.ua/groups/sport/projects/my-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Brunning%5D">RUNNING</a></li>
+                <li>&nbsp;&nbsp;&nbsp;<a href="https://prostor.mts.com.ua/groups/sport/projects/my-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Bcycling%5D">CYCLING</a></li>
+                <li>&nbsp;&nbsp;&nbsp;<a href="https://prostor.mts.com.ua/groups/sport/projects/my-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Byoga%5D">YOGA</a></li>
+                <li>&nbsp;&nbsp;&nbsp;<a href="https://prostor.mts.com.ua/groups/sport/projects/my-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Bcross-fit%5D">CROSS FIT</a></li>
+
+
+            </ul>
+        </div>
+        <div class="title"> </div>
+    </div>
+
+    <div class="tile bg-second">
+        <div class="slide right bg-orange ">
+            <div class="title" style="text-align: center"></div>
+            <ul>
+                <li><br><br><br><br><br><br><br>
+                    <p style="text-align: center;">
+                        <a href="https://prostor.mts.com.ua/groups/sport/projects/my-sport">group</a></p></li>
+            </ul>
+        </div>
+        <div class="title" style="text-align: center"></div>
+    </div>
+
+
+    <div class="tile bg-thirth ">
+        <div class="slide left bg-blue ">
+            <div class="title" style="text-align: center"></div>
+            <ul>
+                <li><br><br><br><br><br><br><br>
+                    <p style="text-align: center;">
+                        <a href="https://prostor.mts.com.ua/groups/sport/projects/team-sport">group</a></p></li>
+            </ul>
+        </div>
+        <div class="title" style="text-align: center"></div>
+    </div>
+
+
+
+    <div class="tile bg-fourth">
+        <div class="slide bottomr bg-aqua">
+            <div class="title" style="text-align: center"> </div>
+            <ul>
+
+                <li>
+                    <p style="text-align: right;">
+                        <a href="https://prostor.mts.com.ua/groups/sport/projects/team-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Bvolleyball%5D">VOLLEYBALL</a>&nbsp;&nbsp;&nbsp;
+                </li>
+
+                <li>
+                    <p style="text-align: right;">
+                        <a href="https://prostor.mts.com.ua/groups/sport/projects/team-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Bfootball%5D">FOOTBALL</a>&nbsp;&nbsp;&nbsp;
+                </li>
+
+                <li>
+                    <p style="text-align: right;">
+                        <a href="https://prostor.mts.com.ua/groups/sport/projects/team-sport/content?filterID=contentstatus%5Bpublished%5D~category%5Bbasketball%5D">BASKETBALL</a>&nbsp;&nbsp;&nbsp;
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="title" style="text-align: center"> </div>
+    </div>
+
+
+</div>
+
+<script>
+    const firstEl = document.querySelector('.tileset').childNodes;
+    console.log(firstEl);
+
+    const list = document.querySelectorAll('.tile');
+    [...list][0]
+
+    const buttonLeft = document.createElement('button');
+    buttonLeft.innerText = 'sdffsdfdfsdfdfd';
+    buttonLeft.classList.add('button-left');
+    [...list][0].append(buttonLeft);
+
+</script>
